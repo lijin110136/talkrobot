@@ -1,0 +1,11 @@
+/tmp
+/modules
+/test-result
+/logs
+/eclipse
+/upload
+/db
+.classpath
+/.settings
+.project
+/precompiled
