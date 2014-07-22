@@ -69,6 +69,8 @@ public class Application extends Controller {
     }
     
     public static void main(String[] args) {
-    	talk("傻瓜");
+    	for(int i = 0 ; i < 10; i++){
+    		talk("她是谁");
+    	}
 	}
 }
