@@ -43,7 +43,11 @@ public class Application extends Controller {
 			HttpEntity entity = httpResponse.getEntity();
 			body = EntityUtils.toString(entity);
 			String str = mapper.readTree(body).findValue("sentence_resp").asText();
-			System.out.println(str);
+			
+			String videoUrl = "http://translate.google.cn/translate_tts?ie=UTF-8&q=" + str + "&tl=zh-CN&total=2&idx=1&textlen=34&client=t";
+			
+			
+			renderJSON("{\"answer\": \""+ str +"\", \"videoUrl\":\""+ videoUrl +"\"}");
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {
@@ -70,7 +74,7 @@ public class Application extends Controller {
     
     public static void main(String[] args) {
     	for(int i = 0 ; i < 10; i++){
-    		talk("她是谁");
+    		talk("");
     	}
 	}
 }

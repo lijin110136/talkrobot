@@ -1,10 +1,24 @@
 #{extends 'main.html' /}
 #{set title:'唠嗑' /}
 
-#{welcome /}
-<div class="container">
-	<input type="text"
-</div>
+<body>
+	<div class="container">
+	<form name="askform">
+		<input type="text" name="ask" id="ask"/><br/>
+		<input type="button" value="提交" onclick="send()"/>
+	</form>
+	<object height="100" width="100" data="http://translate.google.cn/translate_tts?ie=UTF-8&q=%E4%BD%A0%E5%A5%BD&tl=zh-CN&total=2&idx=1&textlen=34&client=t"></object>
+	</div>
+</body>
+<script type="text/javascript">
+function send(){
+	var ask = $("#ask").val();
+	var data = {"send":ask};	
+	$.get("@{Application.talk()}",data, function(response){
+		$("object").attr("data", response.videoUrl);
+	});
+}
+</script>
 
 
 
